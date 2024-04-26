@@ -12,12 +12,12 @@ public final class TextHelper {
 		return string == null;
 	}
 
-	public static final boolean isNullorEmpty(final String string) {
-		return isNull(string) || EMPTY.equals(string.trim());
+	public static final boolean isNullOrEmpty(final String string) {
+		return isNull(string) || EMPTY.equals(applyTrim(string));
 	}
 
 	public static final String getDefaultValue(final String string, final String defaultValue) {
-		return isNullorEmpty(string) ? defaultValue : string;
+		return isNullOrEmpty(string) ? defaultValue : string;
 	}
 
 	public static final String getDefaulValue(final String string) {
