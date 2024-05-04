@@ -10,6 +10,11 @@ public final class CroscuttingPCHException extends PCHException {
 	public CroscuttingPCHException(final String mensajeUsuario) {
 		super(mensajeUsuario, Lugar.CROSCUTTING);
 	}
+	
+	public CroscuttingPCHException(final String mensajeTecnico, final String mensajeUsuario) {
+		super(mensajeTecnico, mensajeUsuario, Lugar.CROSCUTTING);
+	}
+
 
 	public CroscuttingPCHException(final String mensajeTecnico, final String mensajeUsuario,
 			final Throwable exeptionRaiz) {
