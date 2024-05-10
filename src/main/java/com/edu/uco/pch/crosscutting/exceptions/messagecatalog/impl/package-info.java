@@ -1,1 +1,0 @@
-package com.edu.uco.pch.crosscutting.exceptions.messagecatalog.impl;

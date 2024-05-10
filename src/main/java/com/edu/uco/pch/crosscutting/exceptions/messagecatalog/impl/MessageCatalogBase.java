@@ -23,7 +23,11 @@ public final class MessageCatalogBase implements MessegeCatalog {
 		mensajes.put(CodigoMensaje.M00003.getIdentificador(), new Mensaje(CodigoMensaje.M00003,
 				"El codigo del mensaje \"${1}\" que se intento obtener no esta en el catalogo de mensajes base.."));
 		mensajes.put(CodigoMensaje.M00004.getIdentificador(), new Mensaje(CodigoMensaje.M00004,
-				"El mensaje con identificador \"${1}\" que se intento obtener, no esta configurado para revisar en el catalogo de mensajes base "));
+				"El mensaje con identificador \"${1}\" que se intento obtener, no esta configurado para residir en el catalogo de mensajes base.. "));
+		mensajes.put(CodigoMensaje.M00005.getIdentificador(), new Mensaje(CodigoMensaje.M00005,
+				"El mensaje con identificador \"${1}\" que se intento obtener, no esta configurado para residir en el catalogo de mensajes externo.. "));
+		mensajes.put(CodigoMensaje.M00006.getIdentificador(), new Mensaje(CodigoMensaje.M00006,
+				"El mensaje con identificador \"${1}\" que se intento obtener, no esta en el catalogo de mensajes externo.."));
 	}
 
 	@Override
@@ -51,8 +55,6 @@ public final class MessageCatalogBase implements MessegeCatalog {
 			var mensajeTecnico = obtenerContenidoMensaje(CodigoMensaje.M00003, codigo.getIdentificador());
 			throw new CroscuttingPCHException(mensajeTecnico, mensajeUsuario);
 		}
-		
-		
 
 		return mensajes.get(codigo.getIdentificador());
 	}

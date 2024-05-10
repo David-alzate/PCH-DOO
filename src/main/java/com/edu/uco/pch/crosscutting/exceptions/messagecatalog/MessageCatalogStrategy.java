@@ -4,13 +4,17 @@ import com.edu.uco.pch.crosscutting.exceptions.custom.CroscuttingPCHException;
 import com.edu.uco.pch.crosscutting.exceptions.messagecatalog.data.CodigoMensaje;
 import com.edu.uco.pch.crosscutting.exceptions.messagecatalog.data.Mensaje;
 import com.edu.uco.pch.crosscutting.exceptions.messagecatalog.impl.MessageCatalogBase;
-import com.edu.uco.pch.crosscutting.exceptions.messagecatalog.impl.MessageCatalogBaseExternalService;
+import com.edu.uco.pch.crosscutting.exceptions.messagecatalog.impl.MessageCatalogExternalService;
 import com.edu.uco.pch.crosscutting.helpers.ObjectHelper;
 
 public final class MessageCatalogStrategy {
 	
 	private static final MessegeCatalog base = new MessageCatalogBase();
-	private static final MessegeCatalog externalService = new MessageCatalogBaseExternalService();
+	private static final MessegeCatalog externalService = new MessageCatalogExternalService();
+	
+	static {
+		inicializar();
+	}
 	
 	private MessageCatalogStrategy() {
 		super();
@@ -22,17 +26,29 @@ public final class MessageCatalogStrategy {
 		externalService.inicializar();		
 
 	}
+	
 	private static final MessegeCatalog getStrategy(final boolean isBase) {
 		return isBase ? base : externalService;
 	}
 	
-	public static final Mensaje getMensaje9(final CodigoMensaje codigo, 
+	public static final Mensaje getMensaje(final CodigoMensaje codigo, 
 			final String...parametros) {
 		
 		if (ObjectHelper.getObjecHelper().isNull(codigo)) {
-			throw new CroscuttingPCHException(null, null, null);
+			var mensajeUsuario = MessageCatalogStrategy.getConetenidoMensaje(CodigoMensaje.M00002);
+			var mensajeTecnico = MessageCatalogStrategy.getConetenidoMensaje(CodigoMensaje.M00001);
+			throw new CroscuttingPCHException(mensajeTecnico, mensajeUsuario);
 		}
+		
 		return getStrategy(codigo.isBase()).obtenerMensaje(codigo, parametros);
+	}
+	
+	public static final String getConetenidoMensaje(final CodigoMensaje codigo, final String... parametros) {
+		return getMensaje(codigo, parametros).getContenido();
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(getConetenidoMensaje(CodigoMensaje.M00005));
 	}
 
 }

@@ -8,7 +8,12 @@ public enum CodigoMensaje {
 	M00001(TipoMensaje.TECNICO, CategoriaMensaje.ERROR, "00001", true),
 	M00002(TipoMensaje.USUARIO, CategoriaMensaje.ERROR, "00002", true),
 	M00003(TipoMensaje.TECNICO, CategoriaMensaje.ERROR, "00003", true),
-	M00004(TipoMensaje.TECNICO, CategoriaMensaje.ERROR, "00004", true);
+	M00004(TipoMensaje.TECNICO, CategoriaMensaje.ERROR, "00004", true),
+	M00005(TipoMensaje.TECNICO, CategoriaMensaje.ERROR, "00005", true),
+	M00006(TipoMensaje.TECNICO, CategoriaMensaje.ERROR, "00006", true),
+	M00007(TipoMensaje.USUARIO, CategoriaMensaje.EXITO, "00007", false),
+	M00008(TipoMensaje.USUARIO, CategoriaMensaje.EXITO, "00008", true);
+
 
 	private TipoMensaje tipo;
 	private CategoriaMensaje categoria;
@@ -61,7 +66,7 @@ public enum CodigoMensaje {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(M00001.getIdentificador());
+		System.out.println(M00003.getIdentificador());
 	}
 
 }
