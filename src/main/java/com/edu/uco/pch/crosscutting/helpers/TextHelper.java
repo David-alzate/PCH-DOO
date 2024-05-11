@@ -32,10 +32,10 @@ public final class TextHelper {
 	}
 	
 	public static final String concatenate(final String... strings) {
-		final var sb = new StringBuilder(EMPTY);
+		final StringBuilder sb = new StringBuilder(EMPTY);
 		
 		if(!ObjectHelper.getObjecHelper().isNull(strings)) {
-			for(final var string : strings) {
+			for(final String string : strings) {
 				sb.append(applyTrim(string));
 			}
 		}
