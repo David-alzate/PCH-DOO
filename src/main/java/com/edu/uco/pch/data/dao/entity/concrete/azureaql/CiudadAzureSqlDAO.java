@@ -13,7 +13,7 @@ import com.edu.uco.pch.entity.CiudadEntity;
 
 public final class CiudadAzureSqlDAO extends SqlConnection implements CiudadDAO {
 
-	public CiudadAzureSqlDAO(Connection conexion) {
+	public CiudadAzureSqlDAO(final Connection conexion) {
 		super(conexion);
 	}
 
@@ -26,24 +26,24 @@ public final class CiudadAzureSqlDAO extends SqlConnection implements CiudadDAO 
 
 		try (final PreparedStatement sentenciaSqlPreparada = getConnection()
 				.prepareStatement(sentenciaSql.toString())) {
-			
+
 			sentenciaSqlPreparada.setObject(1, data.getId());
 			sentenciaSqlPreparada.setString(2, data.getNombre());
 			sentenciaSqlPreparada.setObject(3, data.getDepartamento().getId());
-			
+
 			sentenciaSqlPreparada.executeUpdate();
 
 		} catch (final SQLException excepcion) {
 			var mensajeUsuario = "Se ha presaentado un problema tratando de crear la ciudad \"${1}\" por favor contatcte al administrador del sistema";
-			var mensajeTecnico = "Se ha presentado una SQLException tratando de realizar el insert de la ciudad \"${1}\" en la tabla Pais de la base de datos";
-			
+			var mensajeTecnico = "Se ha presentado una SQLException tratando de realizar el insert de la ciudad \"${1}\" en la tabla \"Pais\" de la base de datos Azure SQL";
+
 			throw new DataPCHException(mensajeUsuario, mensajeTecnico, excepcion);
-			
-		}catch(final Exception excepcion) {
-			
+
+		} catch (final Exception excepcion) {
+
 			var mensajeUsuario = "Se ha presaentado un problema tratando de crear la ciudad \"${1}\" por favor contatcte al administrador del sistema";
-			var mensajeTecnico = "Se ha presentado un proble INESPERADO con una exception de tipo EXEption tratando de realizar el insert de la ciudad \"${1}\" en la tabla Pais de la base de datos";
-		
+			var mensajeTecnico = "Se ha presentado un problema INESPERADO con una exception de tipo exeption tratando de realizar el insert de la ciudad \"${1}\" en la tabla \\\"Pais\\\" de la base de datos Azure SQL";
+
 			throw new DataPCHException(mensajeUsuario, mensajeTecnico, excepcion);
 		}
 	}

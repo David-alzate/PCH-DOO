@@ -8,13 +8,13 @@ import com.edu.uco.pch.crosscutting.exceptions.messagecatalog.data.CodigoMensaje
 import com.edu.uco.pch.crosscutting.helpers.SQLHelper;
 
 public class SqlConnection {
-	
+
 	private Connection conexion;
-	
+
 	protected SqlConnection(final Connection conexion) {
-		setConnection(conexion);
+		setConexion(conexion);
 	}
-	
+
 	protected SqlConnection() {
 		super();
 	}
@@ -23,18 +23,16 @@ public class SqlConnection {
 		return conexion;
 	}
 
-	protected final void setConnection(final Connection connection) {
-		
+	protected final void setConexion(final Connection connection) {
+
 		if (!SQLHelper.isOpen(conexion)) {
 			var mensajeUsuario = MessageCatalogStrategy.getConetenidoMensaje(CodigoMensaje.M00002);
 			var MensajeTecnico = "No es posible crear el DAO deseado con una conexion cerrada";
-			
+
 			throw new DataPCHException(mensajeUsuario, MensajeTecnico);
 		}
-		
+
 		this.conexion = connection;
 	}
-	
-	
 
 }
