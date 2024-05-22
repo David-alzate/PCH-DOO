@@ -1,6 +1,5 @@
 package com.edu.uco.pch.crosscutting.helpers;
 
-import java.util.Random;
 import java.util.UUID;
 
 public final class UUIDHelper {
@@ -24,10 +23,7 @@ public final class UUIDHelper {
 	}
 
 	public static final UUID generate() {
-		Random random = new Random();
-		long mas = random.nextLong();
-		long menos = random.nextLong();
-		return new UUID(mas, menos);
+		return UUID.randomUUID();
 	}
 
 }
