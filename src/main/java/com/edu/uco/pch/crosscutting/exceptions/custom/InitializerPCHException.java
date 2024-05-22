@@ -10,6 +10,10 @@ public final class InitializerPCHException extends PCHException {
 	public InitializerPCHException(final String mensajeUsuario) {
 		super(mensajeUsuario, Lugar.INITIALIZER);
 	}
+	
+	public InitializerPCHException(final String mensajeTecnico, final String mensajeUsuario) {
+		super(mensajeTecnico, mensajeUsuario, Lugar.INITIALIZER);
+	}
 
 	public InitializerPCHException(final String mensajeTecnico, final String mensajeUsuario,
 			final Throwable exeptionRaiz) {

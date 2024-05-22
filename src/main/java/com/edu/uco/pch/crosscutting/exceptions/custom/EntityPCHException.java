@@ -10,6 +10,10 @@ public final class EntityPCHException extends PCHException {
 	public EntityPCHException(final String mensajeUsuario) {
 		super(mensajeUsuario, Lugar.ENTITY);
 	}
+	
+	public EntityPCHException(final String mensajeTecnico, final String mensajeUsuario) {
+		super(mensajeTecnico, mensajeUsuario, Lugar.ENTITY);
+	}
 
 	public EntityPCHException(final String mensajeTecnico, final String mensajeUsuario, final Throwable exeptionRaiz) {
 		super(mensajeTecnico, mensajeUsuario, Lugar.ENTITY, exeptionRaiz);

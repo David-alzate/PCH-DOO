@@ -10,6 +10,10 @@ public final class BusinessPCHException extends PCHException {
 	public BusinessPCHException(final String mensajeUsuario) {
 		super(mensajeUsuario, Lugar.BUSINESS);
 	}
+	
+	public BusinessPCHException(final String mensajeTecnico, final String mensajeUsuario) {
+		super(mensajeTecnico, mensajeUsuario, Lugar.BUSINESS);
+	}
 
 	public BusinessPCHException(final String mensajeTecnico, final String mensajeUsuario,
 			final Throwable exeptionRaiz) {
