@@ -19,11 +19,11 @@ public class SqlConnection {
 		super();
 	}
 
-	protected final Connection getConnection() {
+	protected final Connection getConexion() {
 		return conexion;
 	}
 
-	protected final void setConexion(final Connection connection) {
+	protected final void setConexion(final Connection conexion) {
 
 		if (!SQLHelper.isOpen(conexion)) {
 			var mensajeUsuario = MessageCatalogStrategy.getConetenidoMensaje(CodigoMensaje.M00002);
@@ -32,7 +32,7 @@ public class SqlConnection {
 			throw new DataPCHException(mensajeUsuario, MensajeTecnico);
 		}
 
-		this.conexion = connection;
+		this.conexion = conexion;
 	}
 
 }

@@ -3,6 +3,7 @@ package com.edu.uco.pch.entity;
 import java.util.UUID;
 
 import com.edu.uco.pch.crosscutting.helpers.TextHelper;
+import com.edu.uco.pch.crosscutting.helpers.UUIDHelper;
 
 public final class PaisEntity {
 
@@ -10,7 +11,8 @@ public final class PaisEntity {
 	private String nombre;
 
 	public PaisEntity() {
-		super();
+		setId(UUIDHelper.getDefault());
+		setNombre(TextHelper.EMPTY);
 	}
 
 	public PaisEntity(final UUID id, final String nombre) {
@@ -39,5 +41,4 @@ public final class PaisEntity {
 		this.nombre = TextHelper.applyTrim(nombre);
 		return this;
 	}
-
 }

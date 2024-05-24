@@ -7,11 +7,9 @@ import com.edu.uco.pch.data.dao.factory.concrete.AzureSQLDAOFactory;
 
 public interface DAOFactory {
 	
-	default DAOFactory getFactory() {
+	static DAOFactory getFactory() {
 		return new AzureSQLDAOFactory();
 	}
-
-	void abrirConexion();
 
 	void cerrarConexion();
 
@@ -20,11 +18,10 @@ public interface DAOFactory {
 	void confirmarTransaccion();
 
 	void cancelarTransaccion();
-	
-	PaisDAO getPaisDAO();
-	
-	DepartamentoDAO getDepartamentoDAO();
-	
-	CiudadDAO getCiudadDAO();
 
+	PaisDAO getPaisDAO();
+
+	DepartamentoDAO getDepartamentoDAO();
+
+	CiudadDAO getCiudadDAO();
 }

@@ -6,19 +6,19 @@ import com.edu.uco.pch.business.assembler.entity.impl.DepartamentoAssemblerEntit
 import com.edu.uco.pch.business.domain.CiudadDomain;
 import com.edu.uco.pch.business.usecase.UseCaseWithoutReturn;
 import com.edu.uco.pch.crosscutting.exceptions.custom.BusinessPCHException;
+import com.edu.uco.pch.crosscutting.helpers.ObjectHelper;
 import com.edu.uco.pch.crosscutting.helpers.UUIDHelper;
 import com.edu.uco.pch.data.dao.factory.DAOFactory;
 import com.edu.uco.pch.entity.CiudadEntity;
 import com.edu.uco.pch.entity.DepartamentoEntity;
 
-import co.com.park.gp.crosscutting.helpers.ObjectHelper;
 
 public class RegistrarCiudad implements UseCaseWithoutReturn<CiudadDomain> {
 
 	private DAOFactory factory;
 
 	public RegistrarCiudad(final DAOFactory factory) {
-		if (ObjectHelper.getObjectHelper().isNull(factory)) {
+		if (ObjectHelper.getObjecHelper().isNull(factory)) {
 			var mensajeUsuario = "se ha presentado un error intentando hacer el registro de la ciudad";
 			var mensajeTecnico = "El dao factory para crear la ciudad llego nulo..";
 			throw new BusinessPCHException(mensajeTecnico, mensajeUsuario);

@@ -21,14 +21,14 @@ public final class PaisAssembleDTO implements AssemblerDTO<PaisDomain, PaisDTO> 
 
 	@Override
 	public final PaisDomain toDomain(final PaisDTO data) {
-		var PaisDtoTmp = getObjecHelper().getDefaultValue(data, PaisDTO.build());
-		return PaisDomain.build(PaisDtoTmp.getId(), PaisDtoTmp.getNombre());
+		var paisDtoTmp = getObjecHelper().getDefaultValue(data, PaisDTO.build());
+		return PaisDomain.build(paisDtoTmp.getId(), paisDtoTmp.getNombre());
 	}
 
 	@Override
 	public final PaisDTO toDTO(final PaisDomain domain) {
-		var PaisDomainTmp = getObjecHelper().getDefaultValue(domain, PaisDomain.build());
-		return PaisDTO.build().setId(PaisDomainTmp.getId()).setNombre(PaisDomainTmp.getNombre());
+		var paisDomainTmp = getObjecHelper().getDefaultValue(domain, PaisDomain.build());
+		return PaisDTO.build().setId(paisDomainTmp.getId()).setNombre(paisDomainTmp.getNombre());
 	}
 
 }

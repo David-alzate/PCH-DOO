@@ -39,7 +39,7 @@ public class DepartamentoAzureSqlDAO extends SqlConnection  implements Departame
 
 	    final List<DepartamentoEntity> departamentos = new ArrayList<>();
 
-	    try (final PreparedStatement sentenciaSqlPreparada = getConnection()
+	    try (final PreparedStatement sentenciaSqlPreparada = getConexion()
 	            .prepareStatement(sentenciaSql.toString())) {
 
 	        int index = 1;

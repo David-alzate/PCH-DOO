@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.5</version>
+		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>co.edu.uco.pch</groupId>
@@ -28,11 +28,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>co.com.park.gp</groupId>
-			<artifactId>gp-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
 		</dependency>
 	</dependencies>
+	
 
 	<build>
 		<plugins>

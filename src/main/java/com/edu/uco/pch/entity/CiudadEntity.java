@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.edu.uco.pch.crosscutting.helpers.ObjectHelper;
 import com.edu.uco.pch.crosscutting.helpers.TextHelper;
+import com.edu.uco.pch.crosscutting.helpers.UUIDHelper;
 
 public final class CiudadEntity {
 	private UUID id;
@@ -11,7 +12,9 @@ public final class CiudadEntity {
 	private DepartamentoEntity departamento;
 
 	public CiudadEntity() {
-		super();
+		setId(UUIDHelper.getDefault());
+		setNombre(TextHelper.EMPTY);
+		setDepartamento(DepartamentoEntity.build());
 	}
 
 	public CiudadEntity(final UUID id, final String nombre, final DepartamentoEntity departamento) {
@@ -39,6 +42,7 @@ public final class CiudadEntity {
 
 	public final CiudadEntity setNombre(final String nombre) {
 		this.nombre = TextHelper.applyTrim(nombre);
+		;
 		return this;
 	}
 
@@ -50,5 +54,4 @@ public final class CiudadEntity {
 		this.departamento = ObjectHelper.getObjecHelper().getDefaultValue(departamento, new DepartamentoEntity());
 		return this;
 	}
-
 }
