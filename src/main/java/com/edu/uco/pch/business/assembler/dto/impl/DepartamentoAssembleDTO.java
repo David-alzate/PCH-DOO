@@ -2,6 +2,8 @@ package com.edu.uco.pch.business.assembler.dto.impl;
 
 import static com.edu.uco.pch.crosscutting.helpers.ObjectHelper.getObjecHelper;
 
+import java.util.List;
+
 import com.edu.uco.pch.business.assembler.dto.AssemblerDTO;
 import com.edu.uco.pch.business.domain.DepartamentoDomain;
 import com.edu.uco.pch.business.domain.PaisDomain;
@@ -34,6 +36,18 @@ public final class DepartamentoAssembleDTO implements AssemblerDTO<DepartamentoD
 		var paisDTO = paisAssembler.toDTO(departamentoDomainTmp.getPais());
 		return DepartamentoDTO.build().setId(departamentoDomainTmp.getId()).setNombre(departamentoDomainTmp.getNombre())
 				.setPais(paisDTO);
+	}
+
+	@Override
+	public List<DepartamentoDomain> toDomainCollection(List<DepartamentoDTO> entityCollection) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DepartamentoDTO> toDTOCollection(List<DepartamentoDomain> domainCollection) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

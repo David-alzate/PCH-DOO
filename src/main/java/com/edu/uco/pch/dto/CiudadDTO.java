@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.edu.uco.pch.crosscutting.helpers.ObjectHelper;
 import com.edu.uco.pch.crosscutting.helpers.TextHelper;
+import com.edu.uco.pch.crosscutting.helpers.UUIDHelper;
 
 public final class CiudadDTO {
 	private UUID id;
@@ -12,6 +13,9 @@ public final class CiudadDTO {
 
 	public CiudadDTO() {
 		super();
+		setId(UUIDHelper.getDefault());
+		setNombre(TextHelper.EMPTY);
+		setDepartamento(DepartamentoDTO.build());
 	}
 
 	public CiudadDTO(final UUID id, final String nombre, final DepartamentoDTO departamento) {

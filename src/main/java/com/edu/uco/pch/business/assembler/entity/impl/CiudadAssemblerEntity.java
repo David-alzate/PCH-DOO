@@ -1,5 +1,8 @@
 package com.edu.uco.pch.business.assembler.entity.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.edu.uco.pch.business.assembler.entity.AssemblerEntity;
 import com.edu.uco.pch.business.domain.CiudadDomain;
 import com.edu.uco.pch.business.domain.DepartamentoDomain;
@@ -34,6 +37,14 @@ public class CiudadAssemblerEntity implements AssemblerEntity<CiudadDomain, Ciud
 		var departamentoEntity = departamentoAssembler.toEntity(ciudadDomainTmp.getDepartamento());
 		return CiudadEntity.build().setId(ciudadDomainTmp.getId()).setNombre(ciudadDomainTmp.getNombre())
 				.setDepartamento(departamentoEntity);
+	}
+
+	@Override
+	public List<CiudadDomain> toDomainCollection(List<CiudadEntity> entityCollection) {
+		var entityCollectionTmp = ObjectHelper.getObjecHelper().getDefaultValue(entityCollection,
+				new ArrayList<CiudadEntity>());
+
+		return entityCollectionTmp.stream().map(this::toDomain).toList();
 	}
 
 }

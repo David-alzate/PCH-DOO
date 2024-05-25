@@ -46,9 +46,5 @@ public final class MessageCatalogStrategy {
 	public static final String getConetenidoMensaje(final CodigoMensaje codigo, final String... parametros) {
 		return getMensaje(codigo, parametros).getContenido();
 	}
-	
-	public static void main(String[] args) {
-		System.out.println(getConetenidoMensaje(CodigoMensaje.M00005));
-	}
 
 }
