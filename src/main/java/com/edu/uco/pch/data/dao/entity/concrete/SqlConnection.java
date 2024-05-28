@@ -9,7 +9,7 @@ import com.edu.uco.pch.crosscutting.helpers.SQLHelper;
 
 public class SqlConnection {
 
-	private Connection conexion;
+	protected Connection conexion;
 
 	protected SqlConnection(final Connection conexion) {
 		setConexion(conexion);

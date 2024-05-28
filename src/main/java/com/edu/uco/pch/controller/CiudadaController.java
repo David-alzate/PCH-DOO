@@ -28,7 +28,7 @@ public final class CiudadaController {
 		return CiudadDTO.build();
 	}
 
-	@GetMapping("/p")
+	@GetMapping
 	public ResponseEntity<CiudadResponse> consultar() {
 
 		var httpStatusCode = HttpStatus.ACCEPTED;
